@@ -1,0 +1,32 @@
+keywords:
+  - "NiaHealth"
+  - "Nia Health"
+  - "niahealth.com"
+  - "NiaAge"
+
+sources:
+  google_news:
+    enabled: true
+    locale: "en-CA"
+  google_alerts:
+    enabled: true
+    feed_urls: []            # Add RSS URLs from Google Alerts setup
+  reddit:
+    enabled: true
+    extra_queries:              # Broader terms to cast a wider net
+      - "biomarker testing"
+      - "biological age"
+      - "longevity platform"
+      - "preventive health"
+      - "Function Health"
+      - "InsideTracker"
+  hackernews:
+    enabled: true
+  newsdata:
+    enabled: true            # Requires NEWSDATA_API_KEY env var
+
+slack:
+  channel: "#niahealth-mentions"
+
+dedup:
+  ttl_days: 30
