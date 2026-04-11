@@ -81,17 +81,18 @@ def main():
     )
     print(f"Total items fetched: {len(all_mentions)}")
 
+    cap = config.get("max_posts_per_run", 15)
     new_mentions = [
         m
         for m in all_mentions
         if m.get("title") and m.get("url")
         and not dedup.is_duplicate(seen, m["title"], m["url"])
     ]
-    print(f"New mentions: {len(new_mentions)}")
+    print(f"New mentions: {len(new_mentions)} (cap: {cap})")
 
     if new_mentions:
         wh_client = WebhookClient(url=webhook_url) if webhook_url else None
-        for mention in new_mentions:
+        for mention in new_mentions[:cap]:
             dedup.mark_seen(seen, mention["title"], mention["url"])
             slack_poster.post(wh_client, mention)
             if not dry_run:
