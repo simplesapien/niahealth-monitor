@@ -16,12 +16,9 @@ sources:
   reddit:
     enabled: true
     extra_queries:
-      - "biomarker testing"
-      - "biological age"
-      - "longevity platform"
-      - "preventive health"
       - "Function Health"
       - "InsideTracker"
+      - "Superpower Health"
   hackernews:
     enabled: false
   newsdata:
